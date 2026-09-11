@@ -6,3 +6,25 @@ parar o servidore ligar ele toda que que ouver uma alteracao o --save-dev e uma 
 basicamente diz que ele so sera usado na faze de densevolvimento ou seja so sera utilizado quando
 eu estiver a densevolver a aplicacao quando o servdor estiver online ai a gente nao precisa do
 nodemon porque ele ja ficara disponivel rodando de forma directa
+
+Resumo da aula 
+const express =  require('express')
+const app = express()
+const port = 3333
+
+app.get('/message/:id/:user',(require,response)=>{
+    //route Params Elas sao obrigatorio
+    const {id , user} = require.params
+    response.send(`Id do usuario e ${id} com o nome ${user}`)
+})
+
+//Route Query ja e opcinal  esse  basta acessar a rota
+app.get('/user',(request,response)=>{
+    const {page , limit, category} = request.query
+   // saida  http://localhost:3333/user/?page=2&limit=10
+  // http://localhost:3333/user/?page=2&limit=10&category=jogos
+    response.send(`Pagina ${page}. Mostrar ${limit} categoria ${category}`);
+})
+
+app.listen(port,()=>{ console.log(`Server is Running On Por ${port}`)});
+
