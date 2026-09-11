@@ -1,0 +1,8 @@
+npm install nodemon --save-dev
+
+nodemon é uma biblioteca parecida com o liveSever basicamente
+ela permite que o servdor Atualize ao salvar o arquivo sem a neccessidade de
+parar o servidore ligar ele toda que que ouver uma alteracao o --save-dev e uma depedencia ou seja
+basicamente diz que ele so sera usado na faze de densevolvimento ou seja so sera utilizado quando
+eu estiver a densevolver a aplicacao quando o servdor estiver online ai a gente nao precisa do
+nodemon porque ele ja ficara disponivel rodando de forma directa
