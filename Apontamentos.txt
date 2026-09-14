@@ -28,3 +28,10 @@ app.get('/user',(request,response)=>{
 
 app.listen(port,()=>{ console.log(`Server is Running On Por ${port}`)});
 
+2- Estrutua e organizacao do projecto a pasta routes basicamente armazena todas as rotas que
+a gente vai usar. tambem deu se enfase no module.export = "arquivo para ser acessado Global" como 
+
+fosse um link que todos os arquivo que desejam usas suas funcionlidadesuse
+tambem faluse do uso do ex: app.json({}) que basicamente diz que o aquivo app.que esta usando o express
+queturne da api as informacoes em formato javaScript Objecto Notetion
+
