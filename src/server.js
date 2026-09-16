@@ -1,4 +1,4 @@
-const express =  require("express")
+const express = require("express")
 
 const routes = require("./routes")
 
@@ -8,5 +8,7 @@ app.use(express.json())
 
 app.use(routes)
 const port = 3333
-app.listen(port,()=>{ console.log(`Server is Running On Por ${port}`)});
+app.listen(port, () => {
+    console.log(`Server is Running On Por ${port}`)
+});
 
