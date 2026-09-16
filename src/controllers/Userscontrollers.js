@@ -1,6 +1,4 @@
 class Userscontrollers{
-     
-
     /*/
     * Index - GET para listar usuarios Registados
     * show - GET para exibir um registro especifico
