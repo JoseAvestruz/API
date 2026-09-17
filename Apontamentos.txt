@@ -39,3 +39,9 @@ queturne da api as informacoes em formato javaScript Objecto Notetion
 3- Adicionando biblioteca para tratamentos de erros nessa caso a express async error
 npm install express-async-errors --save
 
+Solução 2: O Express 5 já resolve isso nativamente (Alternativa)Uma informação importante: O Express 5 agora suporta a captura de erros em funções assíncronas (async/await) nativamente.Se você estiver usando o Express 5, você não precisa da biblioteca express-async-errors. O próprio Express já envia os erros gerados dentro de promessas direto para o seu middleware de tratamento de erros.Se quiser testar sem a biblioteca, basta estruturar sua rota assim:javascriptapp.get('/rota', async (req, res) => {
+  // Se isso falhar, o Express 5 captura o erro automaticamente!
+  const dados = await bancoDeDados.buscar(); 
+  res.json(dados);
+})
+
