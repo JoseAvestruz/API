@@ -38,6 +38,25 @@ queturne da api as informacoes em formato javaScript Objecto Notetion
 
 3- Adicionando biblioteca para tratamentos de erros nessa caso a express async error
 npm install express-async-errors --save
+ comando npm install express-async-errors --save serve para instalar uma biblioteca que lida automaticamente com erros em funções assíncronas (async/await) no Express.No Express 4 (e versões anteriores), se ocorre um erro dentro de uma rota assíncrona, o Express não consegue capturá-lo sozinho. Isso faz com que a aplicação trave ou fique "pendurada", a menos que você coloque um bloco try/catch em absolutamente todas as rotas.Essa biblioteca resolve esse problema de forma transparente.🛠️ O que ela muda na prática?Sem a biblioteca (Padrão do Express 4)Você é obrigado a usar try/catch e passar o erro manualmente para o método next:javascriptapp.get('/usuarios', async (req, res, next) => {
+  try {
+    const usuarios = await BancoDeDados.buscarTodos();
+    res.json(usuarios);
+  } catch (error) {
+    next(error); // Sem isso, o Express não descobre o erro!
+  }
+});
+Com a bibliotecaVocê pode escrever o código direto. Se o banco de dados falhar, o Express captura o erro e o envia direto para o seu middleware de tratamento de erros:javascriptapp.get('/usuarios', async (req, res) => {
+  const usuarios = await BancoDeDados.buscarTodos(); // Se falhar, o erro é capturado sozinho!
+  res.json(usuarios);
+});
+🚀 Como usar no seu código?Basta importar a biblioteca no topo do seu arquivo principal (geralmente o server.js ou app.js), antes de definir as suas rotas:javascriptimport 'express-async-errors'; // Em ES Modules
+// ou: require('express-async-errors'); // Em CommonJS
+
+import express from 'express';
+const app = express();
+💡 Nota sobre o termo --saveO sinalizador --save era usado antigamente para salvar o pacote no arquivo package.json. Hoje em dia, ele não é mais necessário, pois o npm já faz isso de forma automática apenas com npm install express-async-errors.
+
 
 Solução 2: O Express 5 já resolve isso nativamente (Alternativa)Uma informação importante: O Express 5 agora suporta a captura de erros em funções assíncronas (async/await) nativamente.Se você estiver usando o Express 5, você não precisa da biblioteca express-async-errors. O próprio Express já envia os erros gerados dentro de promessas direto para o seu middleware de tratamento de erros.Se quiser testar sem a biblioteca, basta estruturar sua rota assim:javascriptapp.get('/rota', async (req, res) => {
   // Se isso falhar, o Express 5 captura o erro automaticamente!
