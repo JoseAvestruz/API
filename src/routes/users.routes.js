@@ -3,9 +3,6 @@ const { Router } = require("express")
 const Userscontrollers = require("../controllers/Userscontrollers")
 
 const userRoutes = Router()
-  
-
-
 
 const userscontrollers = new Userscontrollers()
 
