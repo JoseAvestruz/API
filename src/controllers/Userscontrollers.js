@@ -12,7 +12,7 @@ class Userscontrollers{
     const { name, email , password} = request.body
     if(!name) {
         throw new AppError('Nome e obrigatorio')
-    }
+    } 
 
     response.status(201).json({name , email , password})
    }
