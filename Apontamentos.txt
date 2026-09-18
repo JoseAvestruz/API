@@ -64,3 +64,7 @@ Solução 2: O Express 5 já resolve isso nativamente (Alternativa)Uma informaç
   res.json(dados);
 })
 
+4- A seguir Fomos ao ponto principal que e a criacao do banco de dados 
+neste caso escolhemos um banco de dados relacional usando o sqlite 
+npm install sqlite3 --legacy-peer-dep
+
