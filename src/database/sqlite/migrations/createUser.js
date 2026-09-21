@@ -1,5 +1,5 @@
 const createUser = `
-create table users (
+create table  IF NOT EXISTS users (
   id integer primary key autoincrement,
   name varchar,
   email varchar,

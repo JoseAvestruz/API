@@ -6,9 +6,9 @@ const express = require("express")
 
 const routes = require("./routes")
 
-const database = require("./database/sqlite")
+const migrationsRun = require("./database/sqlite/migrations")
 
-database()
+migrationsRun()
 
 const app = express()
 
@@ -24,7 +24,7 @@ app.use((error, request, response, next) => {
             status: "error",
             message : error.message
             
-        })
+        }) 
     }
     console.error(error)
     
