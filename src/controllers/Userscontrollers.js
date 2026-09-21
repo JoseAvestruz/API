@@ -1,6 +1,6 @@
 const AppError = require('../utils/AppError')
-const
  sqliteConection = require('../database/sqlite')
+ const {hash} = require("bcryptjs")
 class Userscontrollers{
     /*/
     * Index - GET para listar usuarios Registados

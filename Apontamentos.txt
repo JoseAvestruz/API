@@ -69,3 +69,6 @@ neste caso escolhemos um banco de dados relacional usando o sqlite
 npm install sqlite3 --legacy-peer-dep
 --save usamos ele para identificar que e uma depedencia de producao
 
+
+bcrypt.js uma biblioteca responsal pela critografia das senhas usadas nesse projecto no banco sqlite usado para
+proteger a senha do users
