@@ -39,12 +39,7 @@ class Userscontrollers {
     }
     user.name = name?? user.name;
     user.email = email?? user.email;
-    await database.run(`UPDATE users set 
-        name = ? ,
-        email = ?  ,
-        updated_at = DATETIME('now')
-        where id =? `,
-        [user.name , user.email, id]
+    await database.run(`UPDATE users set  name = ? , email = ?  where id =? `, [user.name , user.email, id]
       
       );
       return response.status(200).json({message:"Atualizado com sucesso!"})
