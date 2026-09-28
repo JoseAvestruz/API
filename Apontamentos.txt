@@ -72,3 +72,19 @@ npm install sqlite3 --legacy-peer-dep
 
 bcrypt.js uma biblioteca responsal pela critografia das senhas usadas nesse projecto no banco sqlite usado para
 proteger a senha do users
+O Knex.js é um construtor de consultas (query builder) SQL para Node.js que permite escrever comandos de banco de dados usando JavaScript ou TypeScript.
+O que ele faz?
+• Substitui o SQL puro: Permite criar consultas usando funções e métodos em vez de escrever strings de código SQL.
+• Controla o banco: Fica no meio do caminho entre escrever SQL puro e usar um Mapeador Objeto-Relacional (ORM) pesado.
+• Gerencia migrações: Ajuda a criar e alterar tabelas do banco de dados ao longo do tempo.
+Bancos de dados compatíveis
+• PostgreSQL
+• MySQL e MariaDB
+• SQLite3
+• MSSQL (SQL Server)
+• Oracle
+• Amazon Redshift
+Exemplo de uso
+Para buscar um usuário pelo e-mail, o código fica assim:
+javascript
+knex('users').select('*').where('email', email).first()
