@@ -21,7 +21,7 @@ class Userscontrollers {
     const hashedPassword = await hash(password, 8)
     await database.run("INSERT INTO users (name , email, password) VALUES (?, ?, ?)",
       [name, email, hashedPassword]);
-    return response.status(201).json({message:"Criado!"});
+    return response.status(201).json({message:"Criado com sucesso!"});
   } 
 
   async update(request, response) {
